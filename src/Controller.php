@@ -13,10 +13,8 @@ class Controller
 
     public function proxyAction(Application $app, Request $request)
     {
-
-//die($request->getRequestUri());
         $stream = function () use ($request) {
-            $url = 'http://172.17.42.1:8002' . $request->getRequestUri();
+            $url = getenv('PROXY_HOST') . $request->getRequestUri();
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
             if ($request->isMethod(Request::METHOD_POST)) {
