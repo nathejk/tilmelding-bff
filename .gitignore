@@ -1,0 +1,6 @@
+vendor/
+._*
+.idea/
+.nfs.*
+data/
+node_modules/
